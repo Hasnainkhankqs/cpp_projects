@@ -6,6 +6,9 @@ void diagram();
 void factorials();
 int main()
 {
+
+
+
     whichprogram();
     return 0;
 }
@@ -26,7 +29,7 @@ void whichprogram(){
 }
 
 
-
+// diagram program
 void diagram(){
 
 //   box characters https://www.wikiwand.com/en/Box-drawing_character
@@ -51,4 +54,21 @@ cout << "\xBC";
 
 }
 
+//factorials program
+void factorials(){
+int c = 1;
+    int num ;
+    cout << "Enter Range for factorials";
+    cin >> num;
+    if(num == 0 ){
+        cout << "0";
+    }
+    else{
+         for(int b = 1 ; b <= num; b++){
+        c = c * b;
+        // c *= b;
+    }
+    cout << c;
+    }
 
+}
