@@ -91,34 +91,37 @@ int c = 1;
 
 }
 void arrysorting(){
- int i,a[10],temp,j;
+ int i,sortingarr[5],temp,j;
 
- cout<<"Enter any 10 num in array: \n";
- for(i=0;i<=10;i++)
+ cout<<"Enter any 5 num in array: \n";
+ for(i=0;i<5;i++)
  {
- cin>>a[i];
+ cin>>sortingarr[i];
  }
- cout<<"\nData before sorting: ";
- for(j=0;j<10;j++)
+ cout<<"\n Data before sorting: ";
+ for(j=0;j<5;j++)
  {
- cout<<a[j];
+ cout << sortingarr[j];
  }
- for(i=0;i<=10;i++)
- {
- for(j=0;j<=10-i;j++)
- {
- if(a[j]>a[j+1])
- {
- temp=a[j];
- a[j]=a[j+1];
- a[j+1]=temp;
+ for(i = 0 ; i <= 5 ; i++){
+
+ for(j=0 ; j <= 5-i; j++){
+
+ if(sortingarr[j] > sortingarr[j+1] ){
+
+ temp = sortingarr[j];
+
+ sortingarr[j] = sortingarr[j+1];
+
+ sortingarr[j+1] = temp;
+
  }
  }
  }
  cout<<"\nData after sorting: ";
- for(j=0;j<10;j++)
+ for(j=0;j<5;j++)
  {
- cout<<a[j];
+ cout<<sortingarr[j];
  }
 
 }
