@@ -56,6 +56,7 @@ cout << "\xBC";
 
 //factorials program
 void factorials(){
+
 int c = 1;
     int num ;
     cout << "Enter Range for factorials";
@@ -72,3 +73,8 @@ int c = 1;
     }
 
 }
+
+asdf
+
+
+
