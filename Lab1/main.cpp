@@ -4,6 +4,7 @@ using namespace std;
 void whichprogram();
 void diagram();
 void factorials();
+void arrysorting();
 int main()
 {
 
@@ -18,12 +19,16 @@ void whichprogram(){
     cout << "Enter a number to find program" << endl;
     cout << "1 - Diagram Learning C " << endl;
     cout << "2 - The factorials of integers given by user" << endl;
+    cout << "3 - Sorting" << endl;
     cin >> bring;
     if(bring == 1 ){
         diagram();
     }
     if(bring == 2){
         factorials();
+    }
+    if(bring == 3){
+        arrysorting();
     }
 
 }
@@ -73,8 +78,22 @@ int c = 1;
     }
 
 }
+void arrysorting(){
 
-asdf
+cout << "Enter 5 Array elements";
+for(int a = 0 ; a <= 5 ; a++ ){
+    int arr[5];
+    cout << "Enter element for array -" << a << endl;
+    cin >> arr[a];
+}
+for(int b = 0 ; b <= 5 ; b++){
+    cout << "The element for array - " << b << " is "<< endl;
+    cout << arr[b];
+}
+
+
+}
+
 
 
 
