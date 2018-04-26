@@ -5,24 +5,16 @@ void whichprogram();
 void diagram();
 void factorials();
 void arrysorting();
+void temperature();
 int main()
 {
-/*
-    int a , b;
-    cout << "Enter For a";
-    cin >> a;
-    cout << "Enter For b";
-    cin >> b;
+int a[3][4] = {
+   {0, 1, 2, 3} ,   /*  initializers for row indexed by 0 */
+   {4, 5, 6, 7} ,   /*  initializers for row indexed by 1 */
+   {8, 9, 10, 11}   /*  initializers for row indexed by 2 */
+};
 
-    if(a > b){
-        cout << a;
-    }
-    else{
-        cout << b;
-    }*/
-
-
-   whichprogram();
+   //whichprogram();
     return 0;
 }
 
@@ -41,6 +33,9 @@ void whichprogram(){
     }
     if(bring == 3){
         arrysorting();
+    }
+     if(bring == 4){
+        temperature();
     }
 
 }
@@ -70,9 +65,9 @@ cout << "\xCD";
 cout << "\xBC";
 
 }
-
 //factorials program
 void factorials(){
+//array sorting program
 
 int c = 1;
     int num ;
@@ -126,5 +121,9 @@ void arrysorting(){
 
 }
 
+void temperature(){
+
+
+}
 
 
