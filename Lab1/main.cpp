@@ -80,20 +80,19 @@ int c = 1;
 }
 void arrysorting(){
 
-cout << "Enter 5 Array elements";
-for(int a = 0 ; a <= 5 ; a++ ){
-    int arr[5];
-    cout << "Enter element for array -" << a << endl;
-    cin >> arr[a];
-}
-for(int b = 0 ; b <= 5 ; b++){
-    cout << "The element for array - " << b << " is "<< endl;
-    cout << arr[b];
+int arr[4];
+
+for(int j = 0; j<4 ; j++)
+{
+cout << "Enter an arr: - " << j << endl;
+cin >> arr[j];
 }
 
-
+for(int a=0; a<4; a++){
+cout << "You entered - " << arr[a] << endl;
 }
 
+}
 
 
 
