@@ -1,4 +1,6 @@
 #include <iostream>
+#include<iomanip>
+
 
 using namespace std;
 void whichprogram();
@@ -10,26 +12,16 @@ void numSquare();
 void desiredFactorial();
 void xpower();
 void numberPattern();
-
+void printParamide();
+void numberPattern2();
+void numberPattern3();
+void primenubers();
 
 int main(){
 
-for(int a = 10; a > 1; a--){
-    for(int b = a ; b > 1 ; b--){
-        cout << "*";
-    }
-    for(int c = 1 ; c <= a ; c++){
-        cout << "+";
-    }
-    cout << endl;
-}
-for(int a = 1; a <= 10; a++){
-    for(int b = 1 ; b <= a ; b++){
-        cout << "*";
-    }
-    cout << endl;
-}
-  // whichprogram();
+
+
+   whichprogram();
     return 0;
 }
 //which program do you want to execute
@@ -46,6 +38,12 @@ void whichprogram(){
     cout << "6 - Desired Factorial" << endl ;
     cout << "7 - Y to the power X" << endl ;
     cout << "8 - Number pattern" << endl ;
+    cout << "9 - print paramide" << endl;
+    cout << "10 - Number pattern 2" << endl;
+    cout << "11 - Number pattern 3" << endl;
+    cout << "12 - Prime numbers up-to 100" << endl;
+
+
 
 
     cin >> bring;
@@ -72,6 +70,19 @@ void whichprogram(){
     }
     if(bring == 8){
        numberPattern();
+    }
+    if(bring == 9){
+       printParamide();
+    }
+
+    if(bring == 10){
+       numberPattern2();
+    }
+    if(bring == 11){
+       numberPattern3();
+    }
+    if(bring == 12){
+       primenubers();
     }
 
 }
@@ -291,8 +302,28 @@ void desiredFactorial(){
             b = b * a;
     }
     cout << b ;
+ whichprogram();
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -316,6 +347,8 @@ for(int a = 1; a <= x ; a++){
  b =  b * y;
 }
 cout << b;
+ whichprogram();
+
 }
 
 
@@ -328,7 +361,178 @@ cout << b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+void printParamide(){
+int d = 0;
+
+for(int a = 10; a >= 1; a--){
+
+    for(int b = 1 ; b <= a ; b++){
+    cout << " ";
+    }
+d++;
+    for(int c = 1 ; c <d ; c++){
+    cout << "*";
+    }
+    for(int e = d ; e >= 1  ; e--){
+    cout << "*";
+    }
+cout << endl;
+}
+ whichprogram();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void numberPattern(){
+
+
+int f  = 0 ;
+for(int g = 10 ; g >= 1 ; g--){
+    for(int h = 1 ; h <= g ; h++){
+        cout << " ";
+    }
+    f++;
+    for(int i = 1 ; i < f ; i++ ){
+        cout << i ;
+    }
+        for(int j = f ; j >= 1 ; j-- ){
+        cout << j ;
+    }
+    cout << endl ;
+}
+ whichprogram();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void numberPattern2(){
+   int f  = 0 ;
+for(int g = 9 ; g >= 1 ; g--){
+    for(int h = 1 ; h <= g ; h++){
+        cout << " ";
+    }
+    f++;
+    for(int i = 1 ; i < f ; i++ ){
+        cout << f ;
+    }
+        for(int j = f ; j >= 1 ; j-- ){
+        cout << f ;
+    }
+    cout << endl ;
+}
+ whichprogram();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void numberPattern3(){
+
+for(int  a = 1 ; a < 10 ; a++){
+    for(int b = 1 ; b <= a ; b++){
+        cout << a;
+    }
+    cout << endl;
+}
+ whichprogram();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+void primenubers(){
+
+int d = 0;
+for(int j = 1 ; j <= 100 ; j++){
+for(int a = 1 ; a <= j ; a++){
+    if(j%a == 0){
+        d++;
+    }
+
+}
+if(d <= 2){
+     cout << left << setw(20)<< j;
+    }
+    d = 0 ;
+
+}
+
 
 
 }
