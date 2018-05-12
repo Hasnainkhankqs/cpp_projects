@@ -25,9 +25,15 @@ void numberPattern2();
 void numberPattern3();
 void primenubers();
 void trigonomatry();
-
+void crossAsteric();
+void countDigits();
+void atoz();
+void sumfirstlast();
+void findfirstlast();
 int main(){
-   whichprogram();
+
+
+whichprogram();
     return 0;
 }
 //which program do you want to execute
@@ -49,6 +55,11 @@ void whichprogram(){
     cout << "11 - Number pattern 3" << endl;
     cout << "12 - Prime numbers up-to 100" << endl;
     cout << "13 - Print trigonomatric functions for standard angels" << endl;
+    cout << "14 - Cross Asteric" << endl;
+    cout << "15 - Count Digits" << endl;
+    cout << "16 - a to z from ASCII" << endl;
+    cout << "17 - Sum of first and last number" << endl;
+    cout << "18 - Find first and last Digits" << endl;
 
 
 
@@ -93,6 +104,21 @@ void whichprogram(){
     }
     if(bring == 13){
        trigonomatry();
+    }
+    if(bring == 14){
+        crossAsteric();
+    }
+    if(bring == 15){
+        countDigits();
+    }
+    if(bring == 16){
+        atoz();
+    }
+    if(bring == 17){
+        sumfirstlast();
+    }
+    if(bring == 18){
+        findfirstlast();
     }
 
 }
@@ -636,5 +662,176 @@ d++;
 cout << endl;
 for(int c = 0  ; c <= 100 ; c++){cout << "_";}
 cout << endl;
+whichprogram();
+}
+
+
+
+
+
+
+
+
+
+
+
+void crossAsteric(){
+
+
+cout << "Enter amount of asteric rows";
+    int n;
+    cin >> n;
+    for(int a = 1 ; a <= n ; a++){
+        for(int b = 1 ; b <= n ; b++){
+            if( ( a == b ) || b == (n+1)- a  ){
+                cout << "*";
+            }
+            else{
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+
+
+whichprogram();
+
+
+}
+
+
+void countDigits(){
+
+cout << "Enter a number";
+long long n ;
+cin >> n;
+int count = 0 ;
+while( n!=0 ){
+  n =  n/10;
+  ++count;
+}
+cout << count;
+whichprogram();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void atoz(){
+
+    cout << endl;
+    int d = 0;
+    for(int a =  97; a <= 122 ; a++)
+    {
+        d++;
+        if(d <= 6){
+            cout << left << setw(10) << " " << (char)a  ;
+
+        }
+        else{
+            cout << endl;
+            cout << endl;
+            d = 0;
+        }
+
+    }
+    whichprogram();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void sumfirstlast(){
+
+long long a;
+    int  r, fd, ld, sum, rev = 0;
+
+    cout << "Enter a Number :";
+    cin>>a;
+
+    ld = a % 10;
+
+    while (a > 0) {
+        r = a % 10;
+        rev = rev * 10 + r;
+        a = a / 10;
+    }
+
+    fd = rev % 10;
+
+    sum = ld + fd;
+
+    cout << "\nSum Of First & Last digit :" << sum;
+
+whichprogram();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void findfirstlast(){
+
+long long a;
+    int  r, fd, ld, sum, rev = 0;
+
+    cout << "Enter a Number :";
+    cin>>a;
+
+    ld = a % 10;
+
+    while (a > 0) {
+        r = a % 10;
+        rev = rev * 10 + r;
+        a = a / 10;
+    }
+
+    fd = rev % 10;
+
+
+
+    cout << "\nThe first digit is :" << fd << endl;
+    cout << "\nThe last digit is  :" << ld << endl;
+
 whichprogram();
 }
