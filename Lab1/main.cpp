@@ -1,8 +1,16 @@
 #include <iostream>
 #include<iomanip>
+#include<string>
+#include<math.h>
+#include<conio.h>
+#include<stdio.h>
 
 
 using namespace std;
+
+
+
+
 void whichprogram();
 void diagram();
 void factorials();
@@ -16,11 +24,9 @@ void printParamide();
 void numberPattern2();
 void numberPattern3();
 void primenubers();
+void trigonomatry();
 
 int main(){
-
-
-
    whichprogram();
     return 0;
 }
@@ -28,7 +34,7 @@ int main(){
 void whichprogram(){
 
     int bring;
-
+    cout << endl;
     cout << "Enter a number to find program" << endl;
     cout << "1 - Diagram Learning C " << endl;
     cout << "2 - The factorials of integers given by user" << endl;
@@ -42,6 +48,7 @@ void whichprogram(){
     cout << "10 - Number pattern 2" << endl;
     cout << "11 - Number pattern 3" << endl;
     cout << "12 - Prime numbers up-to 100" << endl;
+    cout << "13 - Print trigonomatric functions for standard angels" << endl;
 
 
 
@@ -83,6 +90,9 @@ void whichprogram(){
     }
     if(bring == 12){
        primenubers();
+    }
+    if(bring == 13){
+       trigonomatry();
     }
 
 }
@@ -535,4 +545,96 @@ if(d <= 2){
 
 
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void trigonomatry(){
+
+
+// code for writing text
+cout << endl;
+cout << "\xC9";
+for(int a = 0 ; a<= 100; a++)
+cout << "\xCD";
+cout <<"\xBB";
+for(int a = 0 ; a< 5; a++)
+{
+    if(a == 2){
+        cout << "\n\xBA";
+        for(int a = 0 ; a<= 30 ; a++){cout << " ";}
+        cout <<   "Trignonomatric Functions";
+        for(int a = 0 ; a<= 45 ; a++){cout << " ";}
+        cout  << "\xBA";
+    }
+    else{
+        cout << "\n\xBA" ;
+        for(int a = 0 ; a<= 100; a++){cout << " ";}
+        cout << "\xBA";
+    }
+
+}
+cout << "\n\xC8";
+for(int a = 0 ; a<= 100; a++)
+cout << "\xCD";
+cout << "\xBC";
+cout << endl;
+// code  ended for writing text
+
+
+
+
+
+    cout << endl;
+cout  << setw(6)<< " Angles" << setw(14)<< "0" << (char)248 << setw(17)<< "30" << (char)248 << setw(16)<< "45" << (char)248 << setw(16)<< "60" << (char)248 << setw(16)<< "90" << (char)248<< endl;
+ for(int c = 0  ; c <= 100 ; c++){cout << "_";}
+cout << endl;
+cout << endl << left << setw(20) <<" Sin" ;
+
+for(int a = 0; a <= 4 ; a++){
+
+    cout << left << setw(17) << setprecision(2) << sqrt(a/4.0);
+}
+cout << endl;
+cout << endl << left << setw(20) <<" Cos" ;
+for(int a = 4; a >= 0 ; a--){
+
+    cout << left <<  setw(17) << setprecision(2) << sqrt(a/4.0);
+}
+int d = -1;
+cout << endl;
+cout << endl << left << setw(20) <<" Tan" ;
+for(int a = 4; a >= 0 ; a--){
+d++;
+    cout << left <<  setw(17) << setprecision(2) << (sqrt(d/4.0))/(sqrt(a/4.0));
+}
+cout << endl;
+for(int c = 0  ; c <= 100 ; c++){cout << "_";}
+cout << endl;
+whichprogram();
 }
