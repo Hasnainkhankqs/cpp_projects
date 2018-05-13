@@ -5,11 +5,12 @@
 1524728593 source:e:\hasnain\cpp_projects\lab1\main.cpp
 	<iostream>
 
-1526151086 source:d:\assignment\cpp_projects\lab1\main.cpp
+1526233856 source:d:\assignment\cpp_projects\lab1\main.cpp
 	<iostream>
 	<iomanip>
 	<string>
 	<math.h>
 	<conio.h>
 	<stdio.h>
+	<typeinfo>
 

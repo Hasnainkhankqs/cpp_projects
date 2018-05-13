@@ -1,23 +1,23 @@
+
 #include <iostream>
 #include<iomanip>
 #include<string>
 #include<math.h>
 #include<conio.h>
 #include<stdio.h>
-
+#include <typeinfo>
 
 using namespace std;
 
 
 
-
-void whichprogram();
+void starline(char,int);
+void  whichprogram();
 void diagram();
 void factorials();
 void arrysorting();
 void leftPattern();
 void numSquare();
-void desiredFactorial();
 void xpower();
 void numberPattern();
 void printParamide();
@@ -30,24 +30,35 @@ void countDigits();
 void atoz();
 void sumfirstlast();
 void findfirstlast();
+void swapfirstlast();
+void sumOfDigits();
+void productOfDigits();
+void Palindrome();
+void reversenumber();
+void numfrequency();
+
+
+
+
+
+
 int main(){
 
-
 whichprogram();
-    return 0;
+
 }
 //which program do you want to execute
 void whichprogram(){
 
     int bring;
-    cout << endl;
+   /* cout << endl;
     cout << "Enter a number to find program" << endl;
     cout << "1 - Diagram Learning C " << endl;
     cout << "2 - The factorials of integers given by user" << endl;
     cout << "3 - Sorting" << endl;
     cout << "4 - Left pattern" << endl;
     cout << "5 - Square of numbers up-to 100" << endl;
-    cout << "6 - Desired Factorial" << endl ;
+    cout << "6 - factorial " << endl;
     cout << "7 - Y to the power X" << endl ;
     cout << "8 - Number pattern" << endl ;
     cout << "9 - print paramide" << endl;
@@ -60,11 +71,18 @@ void whichprogram(){
     cout << "16 - a to z from ASCII" << endl;
     cout << "17 - Sum of first and last number" << endl;
     cout << "18 - Find first and last Digits" << endl;
+    cout << "19 - Swaping First and last digit" << endl;
+    cout << "20 - Find sum of digits in a given number" << endl;
+    cout << "21 - Find product of digits in a given number" << endl;
+    cout << "22 - Check if a number is palindrome or not" << endl;
+    cout << "23 - Reverse order of a given number" << endl;
+    cout << "24 - Find How many times a digit occures in a number" << endl;
 
 
 
-
-    cin >> bring;
+*/
+   // cin >> bring;
+bring = 7;
     if(bring == 1 ){
         diagram();
     }
@@ -81,7 +99,7 @@ void whichprogram(){
         numSquare();
     }
     if(bring == 6){
-        desiredFactorial();
+        factorials();
     }
     if(bring == 7){
         xpower();
@@ -120,14 +138,42 @@ void whichprogram(){
     if(bring == 18){
         findfirstlast();
     }
+    if(bring == 19){
+        swapfirstlast();
+    }
+    if(bring == 20){
+        sumOfDigits();
+    }
+    if(bring == 21){
+        productOfDigits();
+    }
+    if(bring == 22){
+        Palindrome();
+    }
+    if(bring == 23){
+        reversenumber();
+    }
+    if(bring == 24){
+        numfrequency();
+    }
 
 }
 
 
+//this function will print star line
 
+void  starline(char ch , int num){
+    cout << endl;
+    cout << endl;
+        for(int a = 0 ; a <= num ; a++){
 
+                cout << ch;
+        }
+        cout << endl;
+        cout << endl;
 
-
+    }
+// star line funciton ended
 
 
 
@@ -154,7 +200,7 @@ cout << "\n\xC8";
 for(int a = 0 ; a<= 35; a++)
 cout << "\xCD";
 cout << "\xBC";
- whichprogram();
+
 }
 
 
@@ -181,9 +227,11 @@ void factorials(){
 //array sorting
 //array sorting program
 
-int c = 1;
+
+
+long long c = 1;
     int num ;
-    cout << "Enter Range for factorials";
+    cout << " Enter Range for factorials ";
     cin >> num;
     if(num == 0 ){
         cout << "0";
@@ -193,9 +241,11 @@ int c = 1;
         c = c * b;
         // c *= b;
     }
-    cout << c;
+    starline('*',20);
+    cout << " " << c  ;
+    starline('*',20);
     }
- whichprogram();
+
 }
 
 
@@ -245,7 +295,7 @@ void arrysorting(){
  {
  cout<<sortingarr[j];
  }
- whichprogram();
+
 }
 
 
@@ -273,7 +323,7 @@ void leftPattern(){
         }
         cout << endl;
     }
- whichprogram();
+
 }
 
 
@@ -298,13 +348,18 @@ void leftPattern(){
 
 void numSquare(){
 
-int a ,b ;
+long long a ,b ,countnum;
+countnum = 0;
 b=1;
-for(a = 1; a < 101 ; a++){
+starline('*',100);
+for(a = 1; a <= 100 ; a++){
     b = a * a;
-    cout << b << endl;
+    countnum = countnum + b;
+    cout << left << setw(10) <<b ;
 }
- whichprogram();
+starline('*',100);
+cout << "\n Total is " << countnum;
+starline('*',100);
 }
 
 
@@ -329,18 +384,6 @@ for(a = 1; a < 101 ; a++){
 
 
 
-void desiredFactorial(){
-    int num , a , b;
-    b = 1;
-    cout << "Enter number for to be factorial";
-    cin >> num;
-    for(a = 1 ; a <= num  ; a++){
-            b = b * a;
-    }
-    cout << b ;
- whichprogram();
-
-}
 
 
 
@@ -373,17 +416,18 @@ void xpower(){
 
 int x,y,b ;
 b=1;
-cout << "Enter y";
+cout << " Enter y :";
 cin >> y;
-cout << "Enter x";
+cout << " Enter x :";
 cin >> x;
-
+starline('*',50);
 for(int a = 1; a <= x ; a++){
 
  b =  b * y;
 }
-cout << b;
- whichprogram();
+
+cout << y << " to the power " << x << " is " << b;
+starline('*',50);
 
 }
 
@@ -424,7 +468,7 @@ d++;
     }
 cout << endl;
 }
- whichprogram();
+
 
 }
 
@@ -466,7 +510,7 @@ for(int g = 10 ; g >= 1 ; g--){
     }
     cout << endl ;
 }
- whichprogram();
+
 
 }
 
@@ -508,7 +552,7 @@ for(int g = 9 ; g >= 1 ; g--){
     }
     cout << endl ;
 }
- whichprogram();
+
 
 }
 
@@ -536,7 +580,7 @@ for(int  a = 1 ; a < 10 ; a++){
     }
     cout << endl;
 }
- whichprogram();
+
 
 }
 
@@ -662,7 +706,7 @@ d++;
 cout << endl;
 for(int c = 0  ; c <= 100 ; c++){cout << "_";}
 cout << endl;
-whichprogram();
+
 }
 
 
@@ -694,7 +738,7 @@ cout << "Enter amount of asteric rows";
     }
 
 
-whichprogram();
+
 
 
 }
@@ -711,7 +755,7 @@ while( n!=0 ){
   ++count;
 }
 cout << count;
-whichprogram();
+
 }
 
 
@@ -748,7 +792,7 @@ void atoz(){
         }
 
     }
-    whichprogram();
+
 }
 
 
@@ -787,7 +831,7 @@ long long a;
 
     cout << "\nSum Of First & Last digit :" << sum;
 
-whichprogram();
+
 }
 
 
@@ -813,7 +857,7 @@ whichprogram();
 void findfirstlast(){
 
 long long a;
-    int  r, fd, ld, sum, rev = 0;
+    int  r, fd, ld, rev = 0;
 
     cout << "Enter a Number :";
     cin>>a;
@@ -833,5 +877,264 @@ long long a;
     cout << "\nThe first digit is :" << fd << endl;
     cout << "\nThe last digit is  :" << ld << endl;
 
-whichprogram();
+
+}
+
+
+
+
+
+
+
+
+
+
+void swapfirstlast(){
+int num, afterswap;
+    int firstDigit, lastDigit, digits;
+
+    /* Input a number from user */
+    cout << "Enter any number: ";
+    cin >> num;
+
+    /* Find last digit */
+    lastDigit  = num % 10;
+
+    /* Total number of digit - 1 */
+    digits     = (int) log10(num);
+
+    /* Find first digit */
+    firstDigit = (int) (num / pow(10, digits));
+
+    afterswap  = lastDigit;
+    afterswap *= (int) round(pow(10, digits));
+    afterswap += num % ((int)round(pow(10, digits)));
+    afterswap -= lastDigit;
+    afterswap += firstDigit;
+
+    starline('*',50);
+
+    cout << endl << " Number before swaping " << num << endl;
+    cout << " Number after swaping " << afterswap << endl;
+
+    starline('*',50);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void sumOfDigits(){
+
+int remainder , num  , sum = 0;
+cout << " Enter a number ";
+cin >> num;
+while (num > 0){
+    remainder = num % 10;
+    num = num / 10;
+    sum = sum + remainder ;
+}
+
+starline('*',20);
+
+    cout << " The sum of the digits is "<<  sum;
+
+    starline('*',20);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void productOfDigits(){
+
+int remainder , num  , product = 1;
+cout << " Enter a number ";
+cin >> num;
+while (num > 0){
+    remainder = num % 10;
+    num = num / 10;
+    product = product * remainder ;
+}
+starline('*',20);
+    cout <<" The product of the digits is " <<  product;
+    starline('*',20);
+
+
+
+}
+
+
+void Palindrome(){
+
+long long num, rem, orig, rev=0;
+	cout<<"Enter a number that to be checked: ";
+	cin>>num;
+	orig=num;
+	while(num !=0 )
+	{
+		rem = num%10;
+		rev = rev*10 + rem;
+		num = num/10;
+	}
+	if(rev == orig)  // check if original number is equal to its reverse
+	{
+	    starline('*',50);
+		cout<< " Yes! The number you entered is Palindrome ";
+		starline('*',50);
+	}
+	else
+	{
+	    starline('*',50);
+		cout<<" No! The number you entered is Not Palindrome ";
+		starline('*',50);
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void reversenumber(){
+
+long long num, rem, orig, rev=0;
+	cout<<" Enter a number to be reverse: ";
+	cin >> num;
+	orig = num;
+	while(num !=0 )
+	{
+		rem = num%10;
+		rev = rev*10 + rem;
+		num = num/10;
+	}
+
+	    starline('*',50);
+        cout << " The reverse number for " << orig << " is " << rev;
+        starline('*',50);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void numfrequency(){
+long long n, i, j, ctr, r;
+
+    cout << " Input any number: ";
+    cin >> n;
+    starline('*',20);
+    for (i = 0; i < 10; i++)
+    {
+        cout << " The frequency of " << i << " = ";
+        ctr = 0;
+        for (j = n; j > 0; j = j / 10)
+        {
+            r = j % 10;
+            if (r == i)
+            {
+                ctr++;
+            }
+        }
+
+        cout << " " << ctr << endl;
+
+    }
+    starline('*',20);
+
 }
