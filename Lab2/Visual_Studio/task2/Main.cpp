@@ -12,6 +12,7 @@ void part2();
 void part3();
 void part4();
 void arrayPrint();
+void reverseArray();
 int main() {
 
 	whichProgram();
@@ -43,7 +44,7 @@ void whichProgram() {
 	cout << "4- Print four different patterns: " << endl;*/
 	int bring;
 	//cin >> bring;
-	bring = 5;
+	bring = 6;
 	if (bring == 1) {
 		square();
 	}
@@ -58,6 +59,9 @@ void whichProgram() {
 	}
 	if (bring == 5) {
 		arrayPrint(); 
+	}
+	if (bring == 6) {
+		reverseArray();
 	}
 
 }
@@ -216,6 +220,30 @@ void arrayPrint() {
 	cout << " Elements in array are ";
 	for (int b = 0; b <= 9; b++) {
 		cout <<   arr[b] << " ";
+	}
+	starline(45);
+	cout << endl;
+}
+
+
+
+
+void reverseArray() {
+	cout << " Enter 10 integer Elements for array :" << endl;
+	int arr[10];
+	for (int a = 0; a <= 9; a++) {
+		cout << " Element - " << a << " : ";
+		cin >> arr[a];
+	}
+	starline(45);
+	cout << " You Entered in this sequence ";
+	for (int b = 0; b <= 9; b++) {
+		cout << arr[b] << " ";
+	}
+	starline(45);
+	cout << " This is the reverse array ";
+	for (int b = 9; b >= 0; b--) {
+		cout << arr[b] << " ";
 	}
 	starline(45);
 	cout << endl;
