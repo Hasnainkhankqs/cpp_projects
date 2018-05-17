@@ -51,7 +51,7 @@ whichprogram();
 void whichprogram(){
 
     int bring;
-   /* cout << endl;
+    cout << endl;
     cout << "Enter a number to find program" << endl;
     cout << "1 - Diagram Learning C " << endl;
     cout << "2 - The factorials of integers given by user" << endl;
@@ -80,8 +80,8 @@ void whichprogram(){
 
 
 
-*/
-   // cin >> bring;
+
+    cin >> bring;
 bring = 7;
     if(bring == 1 ){
         diagram();
