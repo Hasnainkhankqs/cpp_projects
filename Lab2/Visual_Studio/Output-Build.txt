@@ -1,0 +1,4 @@
+﻿1>------ Build started: Project: task2, Configuration: Debug x64 ------
+1>Main.cpp
+1>task2.vcxproj -> E:\cpp_projects\Lab2\Visual_Studio\x64\Debug\task2.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
