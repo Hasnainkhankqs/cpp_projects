@@ -13,10 +13,18 @@ void part3();
 void part4();
 void arrayPrint();
 void reverseArray();
+void addArray();
+void copyArray();
+void dublicate();
+void unique();
+void mergesort();
+void frequency();
+void maxmin();
+void oddevenarr();
+void arrascending();
 int main() {
 
 	whichProgram();
-
 
   
 	return 0;
@@ -37,14 +45,26 @@ void  starline(int num) {
 // star line funciton ended
 
 void whichProgram() {
-	/*cout << " Which program you want to execute: " << endl;
+/*	cout << " Which program you want to execute: " << endl;
 	cout << "1- Print Squared shape pattern: " << endl;
 	cout << "2- Print holo Squared shape pattern: " << endl;
 	cout << "3- Check if triangle is possible or not: " << endl;
-	cout << "4- Print four different patterns: " << endl;*/
+	cout << "4- Print four different patterns: " << endl;
+	cout << "5- Take array and print it: " << endl;
+	cout << "6- Take array and print it in reverse order: " << endl;
+	cout << "7- Add elements of array: " << endl;
+	cout << "8- Copy Array into another: " << endl;
+	cout << "9- Check dublicate elements in an Array: " << endl;
+	cout << "10- Check Unique element from an Array: " << endl;
+	cout << "11- Merge Array and sort in desending: " << endl;
+	cout << "12- Check how much times an element occur: " << endl;
+	cout << "13- Check Maximum and minimum in Array: " << endl;
+	cout << "14- Seperate Odd and Even element from array: " << endl;
+	cout << "15- Sort Array in ascending order: " << endl;
+	*/
 	int bring;
-	//cin >> bring;
-	bring = 6;
+//	cin >> bring;
+	bring = 15;
 	if (bring == 1) {
 		square();
 	}
@@ -62,6 +82,33 @@ void whichProgram() {
 	}
 	if (bring == 6) {
 		reverseArray();
+	}
+	if (bring == 7) {
+		addArray();
+	}
+	if (bring == 8) {
+		copyArray();
+	}
+	if (bring == 9) {
+		dublicate();
+	}
+	if (bring == 10) {
+		unique();
+	}
+	if (bring == 11) {
+		mergesort();
+	}
+	if (bring == 12) {
+		frequency();
+	}
+	if (bring == 13) {
+		maxmin();
+	}
+	if (bring == 14) {
+		oddevenarr();
+	}
+	if (bring == 15) {
+		 arrascending();
 	}
 
 }
@@ -135,6 +182,7 @@ void triangle() {
 void whichshape() {
 	cout << " Which shape do you want to print " << endl;
 	cout << "Select 1 - 4: ";
+	cout << "5 to go main menu";
 	int bring;
 	cin >> bring;
 	if (bring == 1) {
@@ -148,6 +196,9 @@ void whichshape() {
 	}
 	if (bring == 4) {
 		part4();
+	}
+	if (bring == 5) {
+		whichProgram();
 	}
 }
 
@@ -209,6 +260,21 @@ void part4() {
 	whichshape();
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void arrayPrint() {
 	cout << " Enter 10 integer Elements for array :" << endl;
 	int arr[10];
@@ -223,6 +289,7 @@ void arrayPrint() {
 	}
 	starline(45);
 	cout << endl;
+	whichProgram();
 }
 
 
@@ -247,4 +314,324 @@ void reverseArray() {
 	}
 	starline(45);
 	cout << endl;
+	whichProgram();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void addArray() {
+	int arr[10];
+	int add = 0;
+	for (int a = 0; a <= 9; a++) {
+		cout << " Enter Element for - " << a << " :";
+		cin >> arr[a];
+		add = add + arr[a];
+	}
+	starline(25);
+	cout << " " << add;
+	starline(25);
+	whichProgram();
+}
+
+
+
+void copyArray() {
+
+	int arr[10], arr2[10];
+	for (int a = 0; a <= 2; a++) {
+		cout << " Enter Element for - " << a << " :";
+		cin >> arr[a];
+	}
+	for (int a = 0; a <= 2; a++) {
+		arr2[a] = arr[a];
+		
+	}
+	starline(70);
+	cout << " The array stored in first array are " ;
+	for (int a = 0; a <= 2; a++) {
+		cout << arr[a];
+	}
+	starline(50);
+	cout << endl <<" The array stored in second array are ";
+	for (int a = 0; a <= 2; a++) {
+		cout << arr2[a];
+	}
+	starline(70);
+	whichProgram();
+}
+
+
+
+
+
+void dublicate() {
+	int count = 1;
+	int arr[5];
+
+	cout << " Enter 5 elements for Array" << endl;
+	for (int i = 0; i < 5 ; i++) {
+		cout << " Enter Element for - " << i << " :";
+		cin >> arr[i];
+	}
+
+	cout << " following are the repeted element(s) ";
+	starline(30);
+	for (int i = 0; i < 5; i++) {
+
+		for (int j = i + 1; j < 5; j++) {
+
+			if (arr[i] == arr[j]) {
+				
+				if (count == 1 && arr[j] != '\0') {
+					
+					cout << " " << arr[i] << " ";
+					
+				}
+				
+				arr[j] = '\0';
+				count++;
+			}
+			
+		}
+		count = 1;
+	}
+	starline(30);
+	
+} 
+
+
+void unique() {
+	int count = 0;
+	int arr[5];
+	int freq[5];
+
+	cout << " Enter 5 elements for Array" << endl;
+	for (int i = 0; i < 5; i++) {
+		cout << " Enter Element for - " << i << " :";
+		cin >> arr[i];
+		freq[i] = -1;
+	}
+	
+	
+	for (int i = 0; i < 5; i++) {
+		count = 1;
+		for (int j = i + 1; j < 5; j++) {
+
+			if (arr[i] == arr[j])
+			{
+				count++;
+				freq[j] = 0;
+			}
+
+
+		}
+		if (freq[i] != 0)
+		{
+			freq[i] = count;
+		}
+		
+	}
+	starline(20);
+	for (int b = 0; b<5; b++)
+	{
+		if (freq[b] == 1)
+		{
+			cout << " " << arr[b];
+		}
+	}
+	starline(20);
+	
+
+}
+
+
+
+
+void mergesort() {
+	int arr1[5], arr2[5], arr3[10]  , temp = 0;
+
+	cout << " Enter 5 elements for first Array" << endl;
+	for (int i = 0; i < 5; i++) {
+		cout << " Enter Element for - " << i << " :";
+		cin >> arr1[i];
+		
+	}
+	cout << " Enter 5 elements for second Array" << endl;
+	for (int i = 0; i < 5; i++) {
+		cout << " Enter Element for - " << i << " :";
+		cin >> arr2[i];
+		
+	}
+	
+	for (int a = 0; a<5; a++)
+	{
+		arr3[a] = arr1[a];
+	}
+	for (int j = 5; j <= 10; j++)
+	{
+		arr3[j] = arr2[j-5];
+		
+	}
+
+	cout << endl;
+	for (int b = 0; b < 10; b++)
+	{
+		for (int c = b + 1; c < 10; c++)
+		{
+			if (arr3[b] < arr3[c]) {
+				temp = arr3[b];
+				arr3[b] = arr3[c];
+				arr3[c] = temp;
+			}
+		}
+	}
+	cout << " The sorted merged Array is :";
+	starline(50);
+	for (int j = 0; j < 10; j++)
+	{
+		cout <<" " <<arr3[j] << "  ";
+	}
+	starline(50);
+
+}
+
+
+void frequency(){
+	int arr[5] , freq[100], count;
+	cout << " Enter 5 elements for Array" << endl;
+	for (int i = 0; i < 5; i++) {
+		cout << " Enter Element for - " << i << " :";
+		cin >> arr[i];
+		freq[i] = -1;
+	}
+	for (int b = 0; b < 5; b++)
+	{
+		count = 1;
+		for (int c = b + 1; c < 5; c++)
+		{
+			if (arr[b] == arr[c]) {
+				count++;
+				freq[c] = 0;
+			}
+		}
+		if (freq[b] != 0) {
+			freq[b] = count;
+		}
+	}
+	starline(50);
+	for (int j = 0; j < 5 ; j++)
+	{
+		if (freq[j] != 0) {
+			cout << " " <<  arr[j] << " Occurs " << freq[j] << " time(s) " << endl;
+		}
+	}
+	starline(50);
+}
+
+
+
+
+
+
+void maxmin() {
+	int arr[100], temp ,n;
+	cout << " How much element you want to enter : ";
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cout << " Enter Element for - " << i+1 << " :";
+		cin >> arr[i];
+	}
+	for (int a = 0; a < n; a++) {
+		for (int b = a + 1; b < n; b++) {
+			if (arr[a] > arr[b]) {
+				temp = arr[a];
+				arr[a] = arr[b];
+				arr[b] = temp;
+			}
+		}
+	}
+	starline(50);
+		cout << " The minimum element is " << arr[0] << endl << endl;
+		cout << " The maximum element is " << arr[n-1] << endl;
+	starline(50);
+}
+
+
+
+
+
+void oddevenarr() {
+	int arr[100], n;
+	cout << " How much element you want to enter : ";
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cout << " Enter Element for - " << i + 1 << " :";
+		cin >> arr[i];
+	}
+	starline(50);
+	cout << " Even elements are " << endl;
+	for (int i = 0; i < n; i++) {
+		if (arr[i] % 2 == 0) {
+			cout << " " << arr[i] << " " ;
+		}
+		
+	}
+	cout << endl << endl;
+	
+	cout << " Odd elements are " << endl;
+
+	for (int i = 0; i < n; i++) {
+		if (arr[i] % 2 != 0) {
+			cout << " " << arr[i] << " ";
+		}
+		
+	}
+	starline(50);
+
+}
+
+
+
+
+void arrascending() {
+	int arr[100], n , temp;
+	cout << " How much element you want to enter : ";
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cout << " Enter Element for - " << i + 1 << " :";
+		cin >> arr[i];
+	}
+	for (int a = 0; a < n; a++) {
+		for (int b = a + 1; b < n; b++) {
+			if (arr[a] > arr[b]) {
+				temp = arr[a];
+				arr[a] = arr[b];
+				arr[b] = temp;
+			}
+		}
+	}
+	starline(50);
+	cout << " Following are the sorted array in ascending order :" << endl;
+	for (int i = 0; i < n; i++) {
+		
+		cout << " " << arr[i] << " ";
+	}
+	starline(50);
 }
