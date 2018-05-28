@@ -22,6 +22,11 @@ void frequency();
 void maxmin();
 void oddevenarr();
 void arrascending();
+void arrdescending();
+void deleteElement();
+void secondlargest();
+void secondsmalest();
+void two_D_arr();
 int main() {
 
 	whichProgram();
@@ -61,10 +66,15 @@ void whichProgram() {
 	cout << "13- Check Maximum and minimum in Array: " << endl;
 	cout << "14- Seperate Odd and Even element from array: " << endl;
 	cout << "15- Sort Array in ascending order: " << endl;
+	cout << "16- Sort Array in descending order: " << endl;
+	cout << "17- Delete an element from an array: " << endl;
+	cout << "18- Second largest element in array: " << endl;
+	cout << "19- Second smallest element in array: " << endl;
+	cout << "19- Make 2D array: " << endl;
 	*/
 	int bring;
 //	cin >> bring;
-	bring = 15;
+	bring = 20;
 	if (bring == 1) {
 		square();
 	}
@@ -109,6 +119,21 @@ void whichProgram() {
 	}
 	if (bring == 15) {
 		 arrascending();
+	}
+	if (bring == 16) {
+		 arrdescending();
+	}
+	if (bring == 17) {
+		deleteElement();
+	}
+	if (bring == 18) {
+		secondlargest();
+	}
+	if (bring == 19) {
+		secondsmalest();
+	}
+	if (bring == 20) {
+		two_D_arr();
 	}
 
 }
@@ -634,4 +659,167 @@ void arrascending() {
 		cout << " " << arr[i] << " ";
 	}
 	starline(50);
+}
+
+
+
+
+
+void arrdescending() {
+	int arr[100], n, temp;
+	cout << " How much element you want to enter : ";
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cout << " Enter Element for - " << i + 1 << " :";
+		cin >> arr[i];
+	}
+	for (int a = 0; a < n; a++) {
+		for (int b = a + 1; b < n; b++) {
+			if (arr[a] < arr[b]) {
+				temp = arr[a];
+				arr[a] = arr[b];
+				arr[b] = temp;
+			}
+		}
+	}
+	starline(50);
+	cout << " Following are the sorted array in descending order :" << endl;
+	for (int i = 0; i < n; i++) {
+
+		cout << " " << arr[i] << " ";
+	}
+	starline(50);
+}
+
+
+
+
+
+
+void deleteElement() {
+	int arr[100];
+	int i, n, pos;
+
+	cout << " How much element you want to enter : ";
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cout << " Enter Element for - " << i + 1 << " :";
+		cin >> arr[i];
+	}
+	cout << " Elements before deleting ";
+	starline(50);
+	for (int i = 0; i < n; i++) {
+		cout << " " << arr[i] << " ";
+	}
+	starline(50);
+	/* Input element position to delete */
+	cout <<"Enter the element position to delete : ";
+	cin >> pos;
+
+
+	/* If delete position is invalid */
+	if (pos == n + 1 || pos<0)
+	{
+		cout << "Invalid position! Please enter position between 1 to " << n ;
+	}
+	else
+	{
+		/* Copy next element value to current element */
+		for (i = pos - 1; i < n - 1; i++)
+		{
+			arr[i] = arr[i + 1];
+		}
+
+		/* Decrement array size by 1 */
+		n--;
+	}
+
+	/* Print array after deletion */
+	cout << "Elements of array after delete are : " << endl;
+	starline(50);
+	for (i = 0; i<n; i++)
+	{
+		cout <<" " << arr[i] << " ";
+	}
+	starline(50);
+
+}
+
+
+
+
+void secondlargest() {
+	int arr[100], temp, n;
+	cout << " How much element you want to enter : ";
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cout << " Enter Element for - " << i + 1 << " :";
+		cin >> arr[i];
+	}
+	for (int a = 0; a < n; a++) {
+		for (int b = a + 1; b < n; b++) {
+			if (arr[a] > arr[b]) {
+				temp = arr[a];
+				arr[a] = arr[b];
+				arr[b] = temp;
+			}
+		}
+	}
+	starline(50);
+	
+	cout << " The Second largest element is " << arr[n - 2] << endl;
+	starline(50);
+}
+
+void secondsmalest() {
+	int arr[100], temp, n;
+	cout << " How much element you want to enter : ";
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cout << " Enter Element for - " << i + 1 << " :";
+		cin >> arr[i];
+	}
+	for (int a = 0; a < n; a++) {
+		for (int b = a + 1; b < n; b++) {
+			if (arr[a] > arr[b]) {
+				temp = arr[a];
+				arr[a] = arr[b];
+				arr[b] = temp;
+			}
+		}
+	}
+	starline(50);
+
+	cout << " The Second smallest element is " << arr[1] << endl;
+	starline(50);
+}
+void two_D_arr() {
+	int arr[3][3], a, b;
+	
+	
+	cout << " Input elements for 3 X 3 array" << endl;
+	for (a = 0; a < 3; a++)
+	{
+		for (b = 0; b < 3; b++)
+		{
+			cout << " Element for -  : " <<  b  << " of " << a << " :";
+			cin >> arr[a][b] ;
+		}
+	}
+	cout << endl << " Now the matrix is " << endl;
+	starline(40);
+	for (a = 0; a<3; a++)
+	{
+		
+		for (b = 0; b < 3; b++) {
+			cout << " " << arr[a][b] << " ";
+		}
+		cout << endl << endl;
+	}
+	starline(40);
+	
 }
