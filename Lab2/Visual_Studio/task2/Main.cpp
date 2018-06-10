@@ -27,6 +27,7 @@ void deleteElement();
 void secondlargest();
 void secondsmalest();
 void two_D_arr();
+void insert_new_element();
 int main() {
 
 	whichProgram();
@@ -70,11 +71,12 @@ void whichProgram() {
 	cout << "17- Delete an element from an array: " << endl;
 	cout << "18- Second largest element in array: " << endl;
 	cout << "19- Second smallest element in array: " << endl;
-	cout << "19- Make 2D array: " << endl;
+	cout << "20- Make 2D array: " << endl;
+	cout << "21- Insert new element at specific location: " << endl;
 	*/
 	int bring;
 //	cin >> bring;
-	bring = 20;
+	bring = 21;
 	if (bring == 1) {
 		square();
 	}
@@ -134,6 +136,9 @@ void whichProgram() {
 	}
 	if (bring == 20) {
 		two_D_arr();
+	}
+	if (bring == 21) {
+		insert_new_element();
 	}
 
 }
@@ -822,4 +827,31 @@ void two_D_arr() {
 	}
 	starline(40);
 	
+}
+
+
+
+void insert_new_element() {
+	int size, arr[100],position,value;
+
+	cout << " Enter number of element to be entered";
+	cin >> size;
+	for (int a = 0; a < size; a++){
+		cout << " Enter element for " << a << " :";
+		cin >> arr[a]; 
+}
+	cout << "Enter position";
+	cin >> position;
+	position--;
+	cout << "Enter Value";
+	cin >> value;
+	for (int a = size; a > position; a-- ) {
+		arr[size] = arr[size - 1];
+	}
+	arr[position] = value;
+	for (int a = 0; a < size+1; a++) {
+		cout << arr[a] << endl;
+		
+	}
+
 }
