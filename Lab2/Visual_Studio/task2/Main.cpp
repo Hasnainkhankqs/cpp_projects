@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 void starline(int);
@@ -28,6 +29,9 @@ void secondlargest();
 void secondsmalest();
 void two_D_arr();
 void insert_new_element();
+void insert_new_element_sorted();
+void addmatrix();
+void subtractionmatrix();
 int main() {
 
 	whichProgram();
@@ -56,6 +60,7 @@ void whichProgram() {
 	cout << "2- Print holo Squared shape pattern: " << endl;
 	cout << "3- Check if triangle is possible or not: " << endl;
 	cout << "4- Print four different patterns: " << endl;
+
 	cout << "5- Take array and print it: " << endl;
 	cout << "6- Take array and print it in reverse order: " << endl;
 	cout << "7- Add elements of array: " << endl;
@@ -63,20 +68,24 @@ void whichProgram() {
 	cout << "9- Check dublicate elements in an Array: " << endl;
 	cout << "10- Check Unique element from an Array: " << endl;
 	cout << "11- Merge Array and sort in desending: " << endl;
-	cout << "12- Check how much times an element occur: " << endl;
+	cout << "12- Count the frequency of each element of an array: " << endl;
 	cout << "13- Check Maximum and minimum in Array: " << endl;
 	cout << "14- Seperate Odd and Even element from array: " << endl;
 	cout << "15- Sort Array in ascending order: " << endl;
 	cout << "16- Sort Array in descending order: " << endl;
-	cout << "17- Delete an element from an array: " << endl;
-	cout << "18- Second largest element in array: " << endl;
-	cout << "19- Second smallest element in array: " << endl;
-	cout << "20- Make 2D array: " << endl;
-	cout << "21- Insert new element at specific location: " << endl;
+	cout << "17- Insert new element sorted position: " << endl;
+	cout << "18- Insert new element at specific location: " << endl;
+	cout << "19- Delete an element from an array: " << endl;
+	cout << "20- Second largest element in array: " << endl;
+	cout << "21- Second smallest element in array: " << endl;
+	cout << "22- Make 2D array: " << endl;
+	cout << "23- Addition of two Matrices of same size: " << endl;
+	cout << "24- subtraction of two Matrices of same size: " << endl;
+	
 	*/
 	int bring;
 //	cin >> bring;
-	bring = 21;
+	bring = 24;
 	if (bring == 1) {
 		square();
 	}
@@ -125,21 +134,33 @@ void whichProgram() {
 	if (bring == 16) {
 		 arrdescending();
 	}
+	
 	if (bring == 17) {
-		deleteElement();
+		insert_new_element_sorted();
 	}
 	if (bring == 18) {
-		secondlargest();
-	}
-	if (bring == 19) {
-		secondsmalest();
-	}
-	if (bring == 20) {
-		two_D_arr();
-	}
-	if (bring == 21) {
 		insert_new_element();
 	}
+	if (bring == 19) {
+		deleteElement();
+	}
+	if (bring == 20) {
+		secondlargest();
+	}
+	if (bring == 21) {
+		secondsmalest();
+	}
+	if (bring == 22) {
+		two_D_arr();
+	}
+	if (bring == 23) {
+		addmatrix();
+	}
+	if (bring == 24) {
+		subtractionmatrix();
+	}
+
+	
 
 }
 
@@ -698,10 +719,82 @@ void arrdescending() {
 }
 
 
+void insert_new_element_sorted() {
+	int size, arr[100], value, temp;
+
+	cout << " Enter number of element to be entered : ";
+	cin >> size;
+	for (int a = 0; a < size; a++) {
+		cout << " Enter element for " << a + 1 << " :";
+		cin >> arr[a];
+	}
+
+	cout << " Enter Value ";
+	cin >> value;
+
+	starline(20);
+	cout << " Elements before insertion " << endl;
+	for (int c = 0; c < size; c++) {
+		cout << " Element at :" << c + 1 << " :" << arr[c] << endl;
+
+	}
+	starline(20);
+	arr[size] = value;
+	for (int a = 0; a < size; a++) {
+		for (int b = a + 1; b < size; b++) {
+			if (arr[a] > arr[b]) {
+				temp = arr[a];
+				arr[a] = arr[b];
+				arr[b] = temp;
+			}
+		}
+	}
+
+
+	starline(20);
+	cout << " Elements after insertion " << endl;
+	for (int a = 0; a <= size; a++) {
+		cout << " Element at : " << a + 1 << " :" << arr[a] << endl;
+	}
+	starline(20);
+}
 
 
 
 
+
+void insert_new_element() {
+	int size, arr[100], position, value;
+
+	cout << " Enter number of element to be entered : ";
+	cin >> size;
+	for (int a = 0; a < size; a++) {
+		cout << " Enter element for " << a + 1 << " :";
+		cin >> arr[a];
+	}
+	cout << " Enter position";
+	cin >> position;
+	position = position - 1;
+	cout << " Enter Value";
+	cin >> value;
+	starline(20);
+	cout << " Elements before insertion " << endl;
+	for (int c = 0; c < size; c++) {
+		cout << " Element at :" << c + 1 << " :" << arr[c] << endl;
+
+	}
+	starline(20);
+	for (int a = size; a >= position; a--) {
+		arr[a + 1] = arr[a];
+	}
+	arr[position] = value;
+	starline(20);
+	cout << " Elements after insertion " << endl;
+	for (int a = 0; a < size + 1; a++) {
+		cout << " Element at : " << a + 1 << " :" << arr[a] << endl;
+	}
+	starline(20);
+}
 void deleteElement() {
 	int arr[100];
 	int i, n, pos;
@@ -831,27 +924,120 @@ void two_D_arr() {
 
 
 
-void insert_new_element() {
-	int size, arr[100],position,value;
+void addmatrix()
+{
+	int arr1[10][10], arr2[10][10], sum[10][10];
 
-	cout << " Enter number of element to be entered";
-	cin >> size;
-	for (int a = 0; a < size; a++){
-		cout << " Enter element for " << a << " :";
-		cin >> arr[a]; 
-}
-	cout << "Enter position";
-	cin >> position;
-	position--;
-	cout << "Enter Value";
-	cin >> value;
-	for (int a = size; a > position; a-- ) {
-		arr[size] = arr[size - 1];
-	}
-	arr[position] = value;
-	for (int a = 0; a < size+1; a++) {
-		cout << arr[a] << endl;
-		
-	}
+	cout << " Enter elements for matrix 1" << endl;
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " Enter element for " << b << " of " << a << " :";
+			cin >> arr1[a][b];
+		}
 
+	}
+	cout << " Enter elements for matrix 2" << endl;
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " Enter element for " << b << " of " << a << " :";
+			cin >> arr2[a][b];
+		}
+
+	}
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+
+			sum[a][b] = arr1[a][b] + arr2[a][b];
+		}
+
+	}
+	starline(50);
+	cout << " Matrix 1 " << endl;
+
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " " << arr1[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
+	cout << " Matrix 2 " << endl;
+
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " " << arr2[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
+	cout << endl << " The sum of both the matrices is " << endl;
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " " << sum[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
 }
+
+
+
+void subtractionmatrix()
+{
+	int arr1[10][10], arr2[10][10], sum[10][10];
+
+	cout << " Enter elements for matrix 1" << endl;
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " Enter element for " << b << " of " << a << " :";
+			cin >> arr1[a][b];
+		}
+
+	}
+	cout << " Enter elements for matrix 2" << endl;
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " Enter element for " << b << " of " << a << " :";
+			cin >> arr2[a][b];
+		}
+
+	}
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+
+			sum[a][b] = arr1[a][b] - arr2[a][b];
+		}
+
+	}
+	starline(50);
+	cout << " Matrix 1 " << endl;
+
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " " << arr1[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
+	cout << " Matrix 2 " << endl;
+
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " " << arr2[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
+	cout << endl << " The subtraction of both the matrices is " << endl;
+	for (int a = 0; a <= 2; a++) {
+		for (int b = 0; b <= 2; b++) {
+			cout << " " << sum[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
+}
+
+
+
+
