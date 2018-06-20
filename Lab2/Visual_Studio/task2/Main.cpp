@@ -32,6 +32,11 @@ void insert_new_element();
 void insert_new_element_sorted();
 void addmatrix();
 void subtractionmatrix();
+void multiplicationmatrix();
+void transpose();
+void sumrightdiagonal();
+void sumleftdiagonal();
+void SumRowCol();
 int main() {
 
 	whichProgram();
@@ -81,11 +86,16 @@ void whichProgram() {
 	cout << "22- Make 2D array: " << endl;
 	cout << "23- Addition of two Matrices of same size: " << endl;
 	cout << "24- subtraction of two Matrices of same size: " << endl;
+	cout << "25- Multiplicatoin of two Matrices of same size: " << endl;
+	cout << "26- Transpse of a Matrices: " << endl;
+	cout << "27- Sum of right diagonal of a matrix: " << endl;
+	cout << "28- Sum of left diagonal of a matrix: " << endl;
+	cout << "29- Sum of row and column of a matrix: " << endl;
 	
 	*/
 	int bring;
 //	cin >> bring;
-	bring = 24;
+	bring = 29;
 	if (bring == 1) {
 		square();
 	}
@@ -158,6 +168,21 @@ void whichProgram() {
 	}
 	if (bring == 24) {
 		subtractionmatrix();
+	}
+	if (bring == 25) {
+		multiplicationmatrix();
+	}
+	if (bring == 26) {
+		transpose();
+	}
+	if (bring == 27) {
+		sumrightdiagonal();
+	}
+	if (bring == 28) {
+		sumleftdiagonal();
+	}
+	if (bring == 29) {
+		SumRowCol();
 	}
 
 	
@@ -926,26 +951,29 @@ void two_D_arr() {
 
 void addmatrix()
 {
-	int arr1[10][10], arr2[10][10], sum[10][10];
+	int arr1[10][10], arr2[10][10], sum[10][10],size;
+	cout << " Input the size of the matrix for both column and row size should be less than 5" << endl;
+	cin >> size;
+	size = size - 1;
 
-	cout << " Enter elements for matrix 1" << endl;
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
-			cout << " Enter element for " << b << " of " << a << " :";
+	cout << endl <<" Enter elements for matrix 1" << endl << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b  + 1 << " of " <<  a  + 1 << " :";
 			cin >> arr1[a][b];
 		}
 
 	}
-	cout << " Enter elements for matrix 2" << endl;
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
-			cout << " Enter element for " << b << " of " << a << " :";
+	cout << endl <<" Enter elements for matrix 2" << endl << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b  + 1 << " of " <<  a  + 1 << " :";
 			cin >> arr2[a][b];
 		}
 
 	}
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
 
 			sum[a][b] = arr1[a][b] + arr2[a][b];
 		}
@@ -954,8 +982,8 @@ void addmatrix()
 	starline(50);
 	cout << " Matrix 1 " << endl;
 
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
 			cout << " " << arr1[a][b] << " ";
 		}
 		cout << endl;
@@ -963,16 +991,16 @@ void addmatrix()
 	starline(50);
 	cout << " Matrix 2 " << endl;
 
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
 			cout << " " << arr2[a][b] << " ";
 		}
 		cout << endl;
 	}
 	starline(50);
 	cout << endl << " The sum of both the matrices is " << endl;
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
 			cout << " " << sum[a][b] << " ";
 		}
 		cout << endl;
@@ -984,36 +1012,38 @@ void addmatrix()
 
 void subtractionmatrix()
 {
-	int arr1[10][10], arr2[10][10], sum[10][10];
-
-	cout << " Enter elements for matrix 1" << endl;
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
-			cout << " Enter element for " << b << " of " << a << " :";
+	int arr1[10][10], arr2[10][10], difference[10][10], size;
+	cout << " Input the size of the matrix for both column and row size should be less than 5" << endl;
+	cin >> size;
+	size = size - 1 ;
+	cout << endl <<" Enter elements for matrix 1" << endl << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b  + 1 << " of " <<  a  + 1 << " :";
 			cin >> arr1[a][b];
 		}
 
 	}
-	cout << " Enter elements for matrix 2" << endl;
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
-			cout << " Enter element for " << b << " of " << a << " :";
+	cout << endl <<" Enter elements for matrix 2" << endl << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b  + 1 << " of " <<  a  + 1 << " :";
 			cin >> arr2[a][b];
 		}
 
 	}
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
 
-			sum[a][b] = arr1[a][b] - arr2[a][b];
+			difference[a][b] = arr1[a][b] - arr2[a][b];
 		}
 
 	}
 	starline(50);
 	cout << " Matrix 1 " << endl;
 
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
 			cout << " " << arr1[a][b] << " ";
 		}
 		cout << endl;
@@ -1021,17 +1051,17 @@ void subtractionmatrix()
 	starline(50);
 	cout << " Matrix 2 " << endl;
 
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
 			cout << " " << arr2[a][b] << " ";
 		}
 		cout << endl;
 	}
 	starline(50);
-	cout << endl << " The subtraction of both the matrices is " << endl;
-	for (int a = 0; a <= 2; a++) {
-		for (int b = 0; b <= 2; b++) {
-			cout << " " << sum[a][b] << " ";
+	cout << endl << " The difference of both the matrices is " << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << difference[a][b] << " ";
 		}
 		cout << endl;
 	}
@@ -1041,3 +1071,217 @@ void subtractionmatrix()
 
 
 
+
+void multiplicationmatrix()
+{
+	int arr1[10][10], arr2[10][10], product[10][10], size;
+	cout << " Input the size of the matrix for both column and row size should be less than 5" << endl;
+	cin >> size;
+	size = size - 1;
+	cout << endl << " Enter elements for matrix 1" << endl << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b + 1 << " of " << a + 1 << " :";
+			cin >> arr1[a][b];
+		}
+
+	}
+	cout << endl << " Enter elements for matrix 2" << endl << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b + 1 << " of " << a + 1 << " :";
+			cin >> arr2[a][b];
+		}
+
+	}
+
+	for (int row = 0; row <= 2; row++) {
+		for (int column = 0; column <= 2; column++) {
+			product[row][column] = 0;
+			for (int i = 0; i <= size; i++) {
+				product[row][column] = product[row][column] + arr1[row][i] * arr2[i][column];
+			}
+
+		}
+	}
+
+	starline(50);
+	cout << " Matrix 1 " << endl;
+
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << arr1[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
+	cout << " Matrix 2 " << endl;
+
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << arr2[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
+	cout << endl << " The Multiplication of both the matrices is " << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << product[a][b] << " ";
+		}
+		cout << endl;
+	}
+	starline(50);
+
+	
+}
+
+
+
+void transpose() {
+	int arr[10][10], size;
+	cout << " Input the size of the matrix for both column and row size should be less than 5" << endl;
+	cin >> size;
+	size--;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b + 1 << " of " << a + 1 << " :";
+			cin >> arr[a][b];
+		}
+
+	}
+	cout << " The orignal matrix is " << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << arr[a][b] << " ";
+			
+		}
+		cout << endl;
+
+	}
+
+	cout << " The transposed matrix is " << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " <<  arr[b][a] << " ";
+
+		}
+		cout << endl;
+
+	}
+}
+
+
+
+void sumrightdiagonal() {
+	int arr[10][10], inverse,size,sum = 0;
+	cout << " Input the size of the matrix for both column and row size should be less than 5" << endl;
+	cin >> size;
+	size--;
+	inverse = size + 1;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b + 1 << " of " << a + 1 << " :";
+			cin >> arr[a][b];
+		}
+
+	}
+	for (int a = 0; a <= size; a++) {
+		inverse--;
+			sum = sum + arr[a][inverse] ;
+
+	}
+	cout << " The matrix of entered elements is :" << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << arr[b][a] << " ";
+
+		}
+		cout << endl;
+
+	}
+	cout << endl << " The sum of right diagonal elements is :" << sum << endl;
+
+
+
+}
+
+
+void sumleftdiagonal() {
+	int arr[10][10], size, m = 0, sum = 0, col = -1;
+	cout << " Input the size of the matrix for both column and row size should be less than 5" << endl;
+	cin >> size;
+	size--;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " Enter element for " << b + 1 << " of " << a + 1 << " :";
+			cin >> arr[a][b];
+		}
+
+	}
+	for (int a = 0; a <= size; a++) {
+		col++;
+		sum = sum + arr[a][col];
+
+	}
+	cout << " The matrix of entered elements is :" << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << arr[b][a] << " ";
+
+		}
+		cout << endl;
+
+	}
+	cout << endl << " The sum of left diagonal elements is :" << sum << endl;
+
+
+}
+
+
+void SumRowCol() {
+	int arr[10][10], sumarr[10],sumrow[10], sumcol[10],size, m = 0, sum = 0;
+	cout << " Input the size of the matrix for both column and row size should be less than 5" << endl;
+	cin >> size;
+	size--;
+	for (int row = 0; row <= size; row++) {
+		for (int col = 0; col <= size; col++) {
+			cout << " Enter element for " << col + 1 << " of " << row + 1 << " :";
+			cin >> arr[row][col];
+		}
+
+	}
+	for (int row = 0; row <= size; row++) {
+		sumrow[row] = 0;
+		for (int col = 0; col <= size; col++) {
+			sumrow[row] = sumrow[row] + arr[row][col];
+		}
+	}
+	for (int row = 0; row <= size; row++) {
+		sumcol[row] = 0;
+		for (int col = 0; col <= size; col++) {
+			sumcol[row] = sumcol[row] + arr[col][row];
+		}
+	}
+	cout << " The matrix of entered elements is :" << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << arr[b][a] << " ";
+
+		}
+		cout << endl;
+
+	}
+	cout << " The sum of rows and column is :" << endl;
+	for (int a = 0; a <= size; a++) {
+		for (int b = 0; b <= size; b++) {
+			cout << " " << arr[a][b] << " ";
+		}
+		cout << "  "  << sumrow[a] << endl;
+	}
+	cout << endl;
+	for (int col = 0; col <= size; col++) {
+		cout << " " << sumcol[col] << " " ;
+	}
+	cout << endl;
+}
