@@ -820,6 +820,13 @@ void insert_new_element() {
 	}
 	starline(20);
 }
+
+
+
+
+
+
+
 void deleteElement() {
 	int arr[100];
 	int i, n, pos;
